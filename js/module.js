@@ -33,6 +33,11 @@ function loopAudio(audio){
     audio.setAttribute('loop', true);
 }
 
+// Annuler boucle sur audio
+function unloopAudio(audio){
+    audio.setAttribute('loop', false);
+}
+
 let listeAudios = createAudioList(listeUrls);
 console.log(listeAudios);
 alimenterLecteur(listeAudios);
