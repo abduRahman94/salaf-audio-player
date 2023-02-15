@@ -9,8 +9,9 @@ let listeUrls = [
 
 // Création d'un fichier audio à partir d'une URL donnée
 function createAudio(url){
-    let audio = document.createElement('source');
+    let audio = document.createElement('audio');
     audio.setAttribute('src', url);
+    audio.setAttribute('controls', true);
     return audio;
 }
 
@@ -18,3 +19,20 @@ function createAudio(url){
 function createAudioList(listeUrls){
     return listeUrls.map((url) => createAudio(url));
 }
+
+// Alimenter le lecteur audio à partir de la liste audios
+function alimenterLecteur(listeAudios){
+    let lecteur = document.querySelector('div');
+    for(let i = 0; i < listeAudios.length; i++) {
+        lecteur.appendChild(listeAudios[i]);
+    }
+}
+
+// Boocler sur un audio
+function loopAudio(audio){
+    audio.setAttribute('loop', true);
+}
+
+let listeAudios = createAudioList(listeUrls);
+console.log(listeAudios);
+alimenterLecteur(listeAudios);
